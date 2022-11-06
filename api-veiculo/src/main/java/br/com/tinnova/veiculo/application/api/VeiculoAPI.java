@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/v1/veiculo")
@@ -16,4 +17,8 @@ public interface VeiculoAPI {
     @GetMapping(value = "/veiculos")
     @ResponseStatus(code = HttpStatus.OK)
     List<VeiculoListResponse> getTodosVeiculos();
+
+    @GetMapping(value = "/{idVeiculo}")
+    @ResponseStatus(code = HttpStatus.OK)
+    VeiculoDetalhadoResponse getVeiculoAtravesId(@PathVariable UUID idVeiculo);
 }

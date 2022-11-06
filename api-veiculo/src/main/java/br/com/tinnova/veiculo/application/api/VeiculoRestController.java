@@ -6,6 +6,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @Log4j2
@@ -20,12 +21,18 @@ public class VeiculoRestController implements VeiculoAPI {
         log.info("[finaliza]  VeiculoRestController - postVeiculo");
         return veiculoCriado;
     }
-
     @Override
     public List<VeiculoListResponse> getTodosVeiculos() {
         log.info("[inicia]  VeiculoRestController - getTodosVeiculos");
         List<VeiculoListResponse> veiculos = veiculoService.buscaTodosVeiculos();
         log.info("[finaliza]  VeiculoRestController - getTodosVeiculos");
         return veiculos;
+    }
+    @Override
+    public VeiculoDetalhadoResponse getVeiculoAtravesId(UUID idVeiculo) {
+        log.info("[inicia]  VeiculoRestController - getVeiculoAtravesId");
+        VeiculoDetalhadoResponse veiculoDetalhado = veiculoService.buscaVeiculoAtravesId(idVeiculo);
+        log.info("[finaliza]  VeiculoRestController - getVeiculoAtravesId");
+        return veiculoDetalhado;
     }
 }
