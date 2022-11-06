@@ -16,7 +16,7 @@ public class VeiculoApplicationService implements VeiculoService {
     @Override
     public VeiculoResponse criaVeiculo(VeiculoRequest veiculoRequest) {
         log.info("[inicia] VeiculoApplicationService - criaVeiculo");
-        Veiculo veiculo = veiculoRepository.salva(veiculoRequest);
+        Veiculo veiculo = veiculoRepository.salva(new Veiculo(veiculoRequest));
         log.info("[finaliza] VeiculoApplicationService - criaVeiculo");
         return VeiculoResponse.builder().idVeiculo(veiculo.getIdVeiculo()).build();
     }
