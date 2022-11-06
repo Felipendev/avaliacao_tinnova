@@ -1,5 +1,6 @@
 package br.com.tinnova.veiculo.application.service;
 
+import br.com.tinnova.veiculo.application.api.VeiculoListResponse;
 import br.com.tinnova.veiculo.application.api.VeiculoRequest;
 import br.com.tinnova.veiculo.application.api.VeiculoResponse;
 import br.com.tinnova.veiculo.application.repository.VeiculoRepository;
@@ -7,6 +8,8 @@ import br.com.tinnova.veiculo.domain.Veiculo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @Log4j2
@@ -19,5 +22,13 @@ public class VeiculoApplicationService implements VeiculoService {
         Veiculo veiculo = veiculoRepository.salva(new Veiculo(veiculoRequest));
         log.info("[finaliza] VeiculoApplicationService - criaVeiculo");
         return VeiculoResponse.builder().idVeiculo(veiculo.getIdVeiculo()).build();
+    }
+
+    @Override
+    public List<VeiculoListResponse> buscaTodosVeiculos() {
+        log.info("[inicia] VeiculoApplicationService - buscaTodosVeiculos");
+        List<Veiculo> veiculos = veiculoRepository.buscaTodosVeiculos();
+        log.info("[finaliza] VeiculoApplicationService - buscaTodosVeiculos");
+        return VeiculoListResponse.converte(veiculos);
     }
 }

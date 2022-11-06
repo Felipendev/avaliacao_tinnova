@@ -13,7 +13,7 @@ public class VeiculoRequest {
     @Id
     private UUID idVeiculo;
     @NotBlank(message = "O Nome do Veículo não pode estar vazio")
-    @Size(min = 3, max = 255)
+    @Size(message = "Nome do Veículo deve conter entre 3 e 255 caracteres ", min = 3, max = 255)
     private String nomeVeiculo;
     @NotBlank(message = "O Campo Marca não pode estar vazio")
     private String marca;
