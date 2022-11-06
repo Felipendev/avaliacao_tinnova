@@ -20,7 +20,8 @@ public class Veiculo {
     private UUID idVeiculo;
     @NotBlank
     private String nomeVeiculo;
-    private Marca marca;
+    @NotBlank
+    private String marca;
     @NotNull
     private Integer ano;
     @NotBlank
