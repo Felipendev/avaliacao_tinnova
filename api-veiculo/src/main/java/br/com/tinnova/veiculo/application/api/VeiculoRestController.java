@@ -35,4 +35,11 @@ public class VeiculoRestController implements VeiculoAPI {
         log.info("[finaliza]  VeiculoRestController - getVeiculoAtravesId");
         return veiculoDetalhado;
     }
+
+    @Override
+    public void putAlteraVeiculo(UUID idVeiculo, VeiculoAlteracaoRequest veiculoAlteracaoRequest) {
+        log.info("[inicia] VeiculoRestController - putAlteraVeiculo");
+        veiculoService.putAlteraVeiculo(idVeiculo, veiculoAlteracaoRequest);
+        log.info("[inicia] VeiculoRestController - putAlteraVeiculo");
+    }
 }

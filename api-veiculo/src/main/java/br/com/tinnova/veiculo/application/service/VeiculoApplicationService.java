@@ -1,9 +1,6 @@
 package br.com.tinnova.veiculo.application.service;
 
-import br.com.tinnova.veiculo.application.api.VeiculoDetalhadoResponse;
-import br.com.tinnova.veiculo.application.api.VeiculoListResponse;
-import br.com.tinnova.veiculo.application.api.VeiculoRequest;
-import br.com.tinnova.veiculo.application.api.VeiculoResponse;
+import br.com.tinnova.veiculo.application.api.*;
 import br.com.tinnova.veiculo.application.repository.VeiculoRepository;
 import br.com.tinnova.veiculo.domain.Veiculo;
 import lombok.RequiredArgsConstructor;
@@ -25,7 +22,6 @@ public class VeiculoApplicationService implements VeiculoService {
         log.info("[finaliza] VeiculoApplicationService - criaVeiculo");
         return VeiculoResponse.builder().idVeiculo(veiculo.getIdVeiculo()).build();
     }
-
     @Override
     public List<VeiculoListResponse> buscaTodosVeiculos() {
         log.info("[inicia] VeiculoApplicationService - buscaTodosVeiculos");
@@ -33,12 +29,19 @@ public class VeiculoApplicationService implements VeiculoService {
         log.info("[finaliza] VeiculoApplicationService - buscaTodosVeiculos");
         return VeiculoListResponse.converte(veiculos);
     }
-
     @Override
     public VeiculoDetalhadoResponse buscaVeiculoAtravesId(UUID idVeiculo) {
         log.info("[inicia] VeiculoApplicationService - buscaVeiculoAtravesId");
         Veiculo veiculo = veiculoRepository.buscaVeiculoAtravesId(idVeiculo);
         log.info("[finalzia] VeiculoApplicationService - buscaVeiculoAtravesId");
         return new VeiculoDetalhadoResponse(veiculo);
+    }
+    @Override
+    public void putAlteraVeiculo(UUID idVeiculo, VeiculoAlteracaoRequest veiculoAlteracaoRequest) {
+        log.info("[inicia] VeiculoApplicationService - putAlteraVeiculo");
+        Veiculo veiculo = veiculoRepository.buscaVeiculoAtravesId(idVeiculo);
+        veiculo.altera(veiculoAlteracaoRequest);
+        veiculoRepository.salva(veiculo);
+        log.info("[inicia] VeiculoApplicationService - putAlteraVeiculo");
     }
 }

@@ -21,4 +21,9 @@ public interface VeiculoAPI {
     @GetMapping(value = "/{idVeiculo}")
     @ResponseStatus(code = HttpStatus.OK)
     VeiculoDetalhadoResponse getVeiculoAtravesId(@PathVariable UUID idVeiculo);
+
+    @PutMapping(value = "/{idVeiculo}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    void  putAlteraVeiculo(@PathVariable UUID idVeiculo,
+                           @Valid @RequestBody VeiculoAlteracaoRequest veiculoAlteracaoRequest);
 }

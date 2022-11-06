@@ -1,5 +1,6 @@
 package br.com.tinnova.veiculo.domain;
 
+import br.com.tinnova.veiculo.application.api.VeiculoAlteracaoRequest;
 import br.com.tinnova.veiculo.application.api.VeiculoRequest;
 import lombok.*;
 import org.springframework.data.annotation.Id;
@@ -40,5 +41,14 @@ public class Veiculo {
         this.descricao = veiculoRequest.getDescricao();
         this.vendido = false;
         this.created = LocalDateTime.now();;
+    }
+    public void altera(VeiculoAlteracaoRequest veiculoAlteracaoRequest) {
+        this.nomeVeiculo = veiculoAlteracaoRequest.getNomeVeiculo();
+        this.marca = veiculoAlteracaoRequest.getMarca();
+        this.ano = veiculoAlteracaoRequest.getAno();
+        this.cor = veiculoAlteracaoRequest.getCor();
+        this.descricao = veiculoAlteracaoRequest.getDescricao();
+        this.vendido = veiculoAlteracaoRequest.getVendido();
+        this.updated = LocalDateTime.now();
     }
 }
