@@ -1,6 +1,5 @@
 package br.com.tinnova.veiculo.infra;
 
-import br.com.tinnova.veiculo.application.api.VeiculoRequest;
 import br.com.tinnova.veiculo.application.repository.VeiculoRepository;
 import br.com.tinnova.veiculo.domain.Veiculo;
 import br.com.tinnova.veiculo.handler.APIException;
@@ -16,29 +15,33 @@ import java.util.UUID;
 @Log4j2
 @RequiredArgsConstructor
 public class VeiculoInfraRepository implements VeiculoRepository {
-    private final TarefaSpringMongoDBRepository tarefaSpringMongoDBRepository;
+    private final VeiculoSpringMongoDBRepository veiculoSpringMongoDBRepository;
     @Override
     public Veiculo salva(Veiculo veiculo) {
         log.info("[inicia] VeiculoInfraRepository - salva");
-        tarefaSpringMongoDBRepository.save(veiculo);
+        veiculoSpringMongoDBRepository.save(veiculo);
         log.info("[finaliza] VeiculoInfraRepository - salva");
         return veiculo;
     }
-
     @Override
     public List<Veiculo> buscaTodosVeiculos() {
         log.info("[inicia] VeiculoInfraRepository - buscaTodosVeiculos");
-        List<Veiculo> todosVeiculos = tarefaSpringMongoDBRepository.findAll();
+        List<Veiculo> todosVeiculos = veiculoSpringMongoDBRepository.findAll();
         log.info("[finaliza] VeiculoInfraRepository - buscaTodosVeiculos");
         return todosVeiculos;
     }
-
     @Override
     public Veiculo buscaVeiculoAtravesId(UUID idVeiculo) {
         log.info("[inicia] VeiculoInfraRepository - buscaVeiculoAtravesId");
-        Veiculo veiculo = tarefaSpringMongoDBRepository.findById(idVeiculo)
+        Veiculo veiculo = veiculoSpringMongoDBRepository.findById(idVeiculo)
                 .orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Veiculo não encontrado!"));
         log.info("[finaliza] VeiculoInfraRepository - buscaVeiculoAtravesId");
         return veiculo;
+    }
+    @Override
+    public void deletaVeiculoAtravesId(Veiculo veiculo) {
+        log.info("[inicia] VeiculoInfraRepository - deletaVeiculoAtravesId");
+        veiculoSpringMongoDBRepository.delete(veiculo);
+        log.info("[finaliza] VeiculoInfraRepository - deletaVeiculoAtravesId");
     }
 }

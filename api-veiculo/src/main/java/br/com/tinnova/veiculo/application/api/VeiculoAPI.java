@@ -31,4 +31,7 @@ public interface VeiculoAPI {
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
     void  patchAlteraVeiculo(@PathVariable UUID idVeiculo,
                                      @Valid @RequestBody VeiculoAlteraStatusRequest veiculoAlteraStatusRequest);
+    @DeleteMapping(value = "/{idVeiculo}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    void  deletaVeiculoAtravesId(@PathVariable UUID idVeiculo);
 }

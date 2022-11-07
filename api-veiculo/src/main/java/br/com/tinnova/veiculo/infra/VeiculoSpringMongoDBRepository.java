@@ -5,5 +5,5 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.UUID;
 
-public interface TarefaSpringMongoDBRepository extends MongoRepository<Veiculo, UUID> {
+public interface VeiculoSpringMongoDBRepository extends MongoRepository<Veiculo, UUID> {
 }

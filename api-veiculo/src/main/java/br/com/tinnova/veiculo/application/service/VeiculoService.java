@@ -11,4 +11,5 @@ public interface VeiculoService {
     VeiculoDetalhadoResponse buscaVeiculoAtravesId(UUID idVeiculo);
     void putAlteraVeiculo(UUID idVeiculo, VeiculoAlteracaoRequest veiculoAlteracaoRequest);
     void patchAlteraVeiculo(UUID idVeiculo, VeiculoAlteraStatusRequest veiculoAlteraStatusRequest);
+    void deletaVeiculoAtravesId(UUID idVeiculo);
 }

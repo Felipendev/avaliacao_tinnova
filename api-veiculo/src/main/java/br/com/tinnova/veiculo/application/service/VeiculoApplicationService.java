@@ -52,4 +52,11 @@ public class VeiculoApplicationService implements VeiculoService {
         veiculoRepository.salva(veiculo);
         log.info("[finaliza] VeiculoApplicationService - patchAlteraVeiculo");
     }
+    @Override
+    public void deletaVeiculoAtravesId(UUID idVeiculo) {
+        log.info("[inicia] VeiculoApplicationService - deletaVeiculoAtravesId");
+        Veiculo veiculo = veiculoRepository.buscaVeiculoAtravesId(idVeiculo);
+        veiculoRepository.deletaVeiculoAtravesId(veiculo);
+        log.info("[finaliza] VeiculoApplicationService - deletaVeiculoAtravesId");
+    }
 }
