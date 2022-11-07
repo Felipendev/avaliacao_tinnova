@@ -44,4 +44,11 @@ public class VeiculoInfraRepository implements VeiculoRepository {
         veiculoSpringMongoDBRepository.delete(veiculo);
         log.info("[finaliza] VeiculoInfraRepository - deletaVeiculoAtravesId");
     }
+    @Override
+    public List<Veiculo> buscaVeiculosPorParametros(String marca, Integer ano, String cor) {
+        log.info("[inicia] VeiculoInfraRepository - buscaVeiculosPorParametros");
+        List<Veiculo> veiculosPorParametros = veiculoSpringMongoDBRepository.findByMarcaOrAnoOrCor(marca, ano, cor);
+        log.info("[finaliza] VeiculoInfraRepository - buscaVeiculosPorParametros");
+        return veiculosPorParametros;
+    }
 }

@@ -11,6 +11,7 @@ import java.util.stream.Collectors;
 public class VeiculoListResponse {
     private UUID idVeiculo;
     private String nomeVeiculo;
+    private String marca;
     private Integer ano;
     private Boolean vendido;
 
@@ -24,5 +25,6 @@ public class VeiculoListResponse {
         this.nomeVeiculo = veiculo.getNomeVeiculo();
         this.ano = veiculo.getAno();
         this.vendido = veiculo.getVendido();
+        this.marca = veiculo.getMarca();
     }
 }

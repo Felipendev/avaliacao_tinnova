@@ -59,4 +59,12 @@ public class VeiculoApplicationService implements VeiculoService {
         veiculoRepository.deletaVeiculoAtravesId(veiculo);
         log.info("[finaliza] VeiculoApplicationService - deletaVeiculoAtravesId");
     }
+
+    @Override
+    public List<VeiculoListByParametrosResponse> buscaVeiculosPorParametros(String marca, Integer ano, String cor) {
+        log.info("[inicia] VeiculoApplicationService - buscaVeiculosPorParametros");
+        List<Veiculo> veiculos = veiculoRepository.buscaVeiculosPorParametros(marca, ano, cor);
+        log.info("[finaliza] VeiculoApplicationService - buscaVeiculosPorParametros");
+        return VeiculoListByParametrosResponse.converte(veiculos);
+    }
 }

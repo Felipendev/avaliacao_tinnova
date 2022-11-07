@@ -12,4 +12,5 @@ public interface VeiculoService {
     void putAlteraVeiculo(UUID idVeiculo, VeiculoAlteracaoRequest veiculoAlteracaoRequest);
     void patchAlteraVeiculo(UUID idVeiculo, VeiculoAlteraStatusRequest veiculoAlteraStatusRequest);
     void deletaVeiculoAtravesId(UUID idVeiculo);
+    List<VeiculoListByParametrosResponse> buscaVeiculosPorParametros(String marca, Integer ano, String cor);
 }

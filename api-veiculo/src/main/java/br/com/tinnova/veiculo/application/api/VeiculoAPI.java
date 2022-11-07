@@ -34,4 +34,10 @@ public interface VeiculoAPI {
     @DeleteMapping(value = "/{idVeiculo}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
     void  deletaVeiculoAtravesId(@PathVariable UUID idVeiculo);
+
+    @GetMapping
+    @ResponseStatus(code = HttpStatus.OK)
+    List<VeiculoListByParametrosResponse> listaVeiculosPorParametros(@RequestParam(value = "marca", required = false) String marca,
+                                                                     @RequestParam(value = "ano", required = false) Integer ano,
+                                                                     @RequestParam(value = "cor", required = false) String cor);
 }
