@@ -26,4 +26,9 @@ public interface VeiculoAPI {
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
     void  putAlteraVeiculo(@PathVariable UUID idVeiculo,
                            @Valid @RequestBody VeiculoAlteracaoRequest veiculoAlteracaoRequest);
+
+    @PatchMapping(value = "/{idVeiculo}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    void  patchAlteraVeiculo(@PathVariable UUID idVeiculo,
+                                     @Valid @RequestBody VeiculoAlteraStatusRequest veiculoAlteraStatusRequest);
 }

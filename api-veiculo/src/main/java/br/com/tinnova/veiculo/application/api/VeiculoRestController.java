@@ -13,7 +13,6 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class VeiculoRestController implements VeiculoAPI {
     private final VeiculoService veiculoService;
-
     @Override
     public VeiculoResponse postVeiculo(VeiculoRequest veiculoRequest) {
         log.info("[inicia]  VeiculoRestController - postVeiculo");
@@ -35,11 +34,16 @@ public class VeiculoRestController implements VeiculoAPI {
         log.info("[finaliza]  VeiculoRestController - getVeiculoAtravesId");
         return veiculoDetalhado;
     }
-
     @Override
     public void putAlteraVeiculo(UUID idVeiculo, VeiculoAlteracaoRequest veiculoAlteracaoRequest) {
         log.info("[inicia] VeiculoRestController - putAlteraVeiculo");
         veiculoService.putAlteraVeiculo(idVeiculo, veiculoAlteracaoRequest);
         log.info("[inicia] VeiculoRestController - putAlteraVeiculo");
+    }
+    @Override
+    public void patchAlteraVeiculo(UUID idVeiculo, VeiculoAlteraStatusRequest veiculoAlteraStatusRequest) {
+        log.info("[inicia] VeiculoRestController - patchAlteraVeiculo");
+        veiculoService.patchAlteraVeiculo(idVeiculo, veiculoAlteraStatusRequest);
+        log.info("[inicia] VeiculoRestController - patchAlteraVeiculo");
     }
 }

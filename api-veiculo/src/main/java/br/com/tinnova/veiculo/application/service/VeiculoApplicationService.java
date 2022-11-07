@@ -33,7 +33,7 @@ public class VeiculoApplicationService implements VeiculoService {
     public VeiculoDetalhadoResponse buscaVeiculoAtravesId(UUID idVeiculo) {
         log.info("[inicia] VeiculoApplicationService - buscaVeiculoAtravesId");
         Veiculo veiculo = veiculoRepository.buscaVeiculoAtravesId(idVeiculo);
-        log.info("[finalzia] VeiculoApplicationService - buscaVeiculoAtravesId");
+        log.info("[finaliza] VeiculoApplicationService - buscaVeiculoAtravesId");
         return new VeiculoDetalhadoResponse(veiculo);
     }
     @Override
@@ -42,6 +42,14 @@ public class VeiculoApplicationService implements VeiculoService {
         Veiculo veiculo = veiculoRepository.buscaVeiculoAtravesId(idVeiculo);
         veiculo.altera(veiculoAlteracaoRequest);
         veiculoRepository.salva(veiculo);
-        log.info("[inicia] VeiculoApplicationService - putAlteraVeiculo");
+        log.info("[finaliza] VeiculoApplicationService - putAlteraVeiculo");
+    }
+    @Override
+    public void patchAlteraVeiculo(UUID idVeiculo, VeiculoAlteraStatusRequest veiculoAlteraStatusRequest) {
+        log.info("[inicia] VeiculoApplicationService - patchAlteraVeiculo");
+        Veiculo veiculo = veiculoRepository.buscaVeiculoAtravesId(idVeiculo);
+        veiculo.atualiza(veiculoAlteraStatusRequest);
+        veiculoRepository.salva(veiculo);
+        log.info("[finaliza] VeiculoApplicationService - patchAlteraVeiculo");
     }
 }

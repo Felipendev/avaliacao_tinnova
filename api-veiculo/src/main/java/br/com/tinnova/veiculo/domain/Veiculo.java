@@ -1,5 +1,6 @@
 package br.com.tinnova.veiculo.domain;
 
+import br.com.tinnova.veiculo.application.api.VeiculoAlteraStatusRequest;
 import br.com.tinnova.veiculo.application.api.VeiculoAlteracaoRequest;
 import br.com.tinnova.veiculo.application.api.VeiculoRequest;
 import lombok.*;
@@ -40,7 +41,7 @@ public class Veiculo {
         this.cor = veiculoRequest.getCor();
         this.descricao = veiculoRequest.getDescricao();
         this.vendido = false;
-        this.created = LocalDateTime.now();;
+        this.created = LocalDateTime.now();
     }
     public void altera(VeiculoAlteracaoRequest veiculoAlteracaoRequest) {
         this.nomeVeiculo = veiculoAlteracaoRequest.getNomeVeiculo();
@@ -48,7 +49,15 @@ public class Veiculo {
         this.ano = veiculoAlteracaoRequest.getAno();
         this.cor = veiculoAlteracaoRequest.getCor();
         this.descricao = veiculoAlteracaoRequest.getDescricao();
-        this.vendido = veiculoAlteracaoRequest.getVendido();
+        this.updated = LocalDateTime.now();
+    }
+    public void atualiza(VeiculoAlteraStatusRequest veiculoAlteraStatusRequest) {
+        this.nomeVeiculo = veiculoAlteraStatusRequest.getNomeVeiculo();
+        this.marca = veiculoAlteraStatusRequest.getMarca();
+        this.ano = veiculoAlteraStatusRequest.getAno();
+        this.cor = veiculoAlteraStatusRequest.getCor();
+        this.descricao = veiculoAlteraStatusRequest.getDescricao();
+        this.vendido = veiculoAlteraStatusRequest.getVendido();
         this.updated = LocalDateTime.now();
     }
 }
