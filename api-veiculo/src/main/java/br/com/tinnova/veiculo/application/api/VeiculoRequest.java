@@ -26,4 +26,5 @@ public class VeiculoRequest {
     @NotBlank(message = "O Campo Cor não pode estar vazio")
     private String cor;
     private String descricao;
+    private Boolean vendido;
 }

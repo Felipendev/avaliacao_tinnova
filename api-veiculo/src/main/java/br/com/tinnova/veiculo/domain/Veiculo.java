@@ -40,7 +40,7 @@ public class Veiculo {
         this.ano = veiculoRequest.getAno();
         this.cor = veiculoRequest.getCor();
         this.descricao = veiculoRequest.getDescricao();
-        this.vendido = false;
+        this.vendido = veiculoRequest.getVendido();
         this.created = LocalDateTime.now();
     }
     public void altera(VeiculoAlteracaoRequest veiculoAlteracaoRequest) {
@@ -49,6 +49,7 @@ public class Veiculo {
         this.ano = veiculoAlteracaoRequest.getAno();
         this.cor = veiculoAlteracaoRequest.getCor();
         this.descricao = veiculoAlteracaoRequest.getDescricao();
+        this.vendido = veiculoAlteracaoRequest.getVendido();
         this.updated = LocalDateTime.now();
     }
     public void atualiza(VeiculoAlteraStatusRequest veiculoAlteraStatusRequest) {

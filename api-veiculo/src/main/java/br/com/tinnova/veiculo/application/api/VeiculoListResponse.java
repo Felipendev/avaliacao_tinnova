@@ -13,6 +13,7 @@ public class VeiculoListResponse {
     private String nomeVeiculo;
     private String marca;
     private String cor;
+    private String descricao;
     private Integer ano;
     private Boolean vendido;
 
@@ -28,5 +29,6 @@ public class VeiculoListResponse {
         this.cor = veiculo.getCor();
         this.vendido = veiculo.getVendido();
         this.marca = veiculo.getMarca();
+        this.descricao = veiculo.getDescricao();
     }
 }

@@ -30,6 +30,7 @@ public class VeiculoRestController implements VeiculoAPI {
     @Override
     public VeiculoDetalhadoResponse getVeiculoAtravesId(UUID idVeiculo) {
         log.info("[inicia]  VeiculoRestController - getVeiculoAtravesId");
+        log.info("[idVeiculo]{}", idVeiculo);
         VeiculoDetalhadoResponse veiculoDetalhado = veiculoService.buscaVeiculoAtravesId(idVeiculo);
         log.info("[finaliza]  VeiculoRestController - getVeiculoAtravesId");
         return veiculoDetalhado;
@@ -37,12 +38,14 @@ public class VeiculoRestController implements VeiculoAPI {
     @Override
     public void putAlteraVeiculo(UUID idVeiculo, VeiculoAlteracaoRequest veiculoAlteracaoRequest) {
         log.info("[inicia] VeiculoRestController - putAlteraVeiculo");
+        log.info("[idVeiculo]{}", idVeiculo);
         veiculoService.putAlteraVeiculo(idVeiculo, veiculoAlteracaoRequest);
         log.info("[inicia] VeiculoRestController - putAlteraVeiculo");
     }
     @Override
     public void patchAlteraVeiculo(UUID idVeiculo, VeiculoAlteraStatusRequest veiculoAlteraStatusRequest) {
         log.info("[inicia] VeiculoRestController - patchAlteraVeiculo");
+        log.info("[idVeiculo]{}", idVeiculo);
         veiculoService.patchAlteraVeiculo(idVeiculo, veiculoAlteraStatusRequest);
         log.info("[inicia] VeiculoRestController - patchAlteraVeiculo");
     }
