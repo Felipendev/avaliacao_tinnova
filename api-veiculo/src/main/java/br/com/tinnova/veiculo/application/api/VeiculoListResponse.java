@@ -12,6 +12,7 @@ public class VeiculoListResponse {
     private UUID idVeiculo;
     private String nomeVeiculo;
     private String marca;
+    private String cor;
     private Integer ano;
     private Boolean vendido;
 
@@ -24,6 +25,7 @@ public class VeiculoListResponse {
         this.idVeiculo = veiculo.getIdVeiculo();
         this.nomeVeiculo = veiculo.getNomeVeiculo();
         this.ano = veiculo.getAno();
+        this.cor = veiculo.getCor();
         this.vendido = veiculo.getVendido();
         this.marca = veiculo.getMarca();
     }
