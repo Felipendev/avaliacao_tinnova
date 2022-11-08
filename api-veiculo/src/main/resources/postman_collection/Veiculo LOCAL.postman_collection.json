@@ -1,0 +1,242 @@
+{
+	"info": {
+		"_postman_id": "c716eb19-0987-4f77-b746-23f164d6612c",
+		"name": "Veiculo LOCAL",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18504428"
+	},
+	"item": [
+		{
+			"name": "Post Veiculo",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nomeVeiculo\": \"COROLLA CROSS\",\n  \"marca\": \"TOYOTA\",\n  \"ano\": 2022,\n  \"cor\": \"Branco\",\n  \"descricao\": \"Novo\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/veiculo/api/v1/veiculo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"veiculo",
+						"api",
+						"v1",
+						"veiculo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Todos Veículos",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/veiculo/api/v1/veiculo/veiculos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"veiculo",
+						"api",
+						"v1",
+						"veiculo",
+						"veiculos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Veículos Detalhado Por ID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/veiculo/api/v1/veiculo/ccccd12c-e9e3-4206-90ba-058ef7fe8368",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"veiculo",
+						"api",
+						"v1",
+						"veiculo",
+						"ccccd12c-e9e3-4206-90ba-058ef7fe8368"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Veículos Por Parâmetros ",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/veiculo/api/v1/veiculo?marca=TOYOTA&ano=2022&cor=Azul",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"veiculo",
+						"api",
+						"v1",
+						"veiculo"
+					],
+					"query": [
+						{
+							"key": "marca",
+							"value": "TOYOTA"
+						},
+						{
+							"key": "ano",
+							"value": "2022"
+						},
+						{
+							"key": "cor",
+							"value": "Azul"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Veículos Por ID",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/veiculo/api/v1/veiculo/ab71b099-4a9e-45ff-b6a3-0f96c482603e",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"veiculo",
+						"api",
+						"v1",
+						"veiculo",
+						"ab71b099-4a9e-45ff-b6a3-0f96c482603e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put Altera Veiculo Por ID",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nomeVeiculo\": \"SIENA\",\n  \"marca\": \"FIAT\",\n  \"cor\": \"BRANCO\",\n  \"ano\": 2020,\n  \"vendido\": true,\n  \"descricao\": \"Novo\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/veiculo/api/v1/veiculo/ccccd12c-e9e3-4206-90ba-058ef7fe8368",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"veiculo",
+						"api",
+						"v1",
+						"veiculo",
+						"ccccd12c-e9e3-4206-90ba-058ef7fe8368"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Patch Atualiza Veiculo Por ID",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nomeVeiculo\": \"COROLLA ATUALIZADO\",\n  \"marca\": \"TOYOTA\",\n  \"ano\": 2023,\n  \"cor\": \"Preto\",\n  \"descricao\": \"Novo\",\n  \"vendido\": true\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/veiculo/api/v1/veiculo/a79a94c0-fd2f-4aea-bab5-7d2830c48c64",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"veiculo",
+						"api",
+						"v1",
+						"veiculo",
+						"a79a94c0-fd2f-4aea-bab5-7d2830c48c64"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
